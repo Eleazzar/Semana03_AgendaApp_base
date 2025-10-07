@@ -20,10 +20,6 @@ public class Main {
         System.out.println("Número de contactos en la agenda: " + agenda.contactCount());
         // 5. Imprimir por pantalla el número de contactos del grupo “trabajo”.
         System.out.println("Número de contactos en el grupo 'trabajo': " + trabajoGroup.contactCount());
-        // Imprimir la fecha de alta del miembro en el grupo
-        Member member = trabajoGroup.getMember(0);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println("Fecha de alta en el grupo: " + member.getDate().format(formatter));
         // 6. Borrar el primer contacto del grupo “trabajo".
         trabajoGroup.removeContact(0);
         // 7. Volver a imprimir por pantalla el número de contactos del grupo “trabajo”.
@@ -32,5 +28,11 @@ public class Main {
         System.out.println("\nIntentando añadir un contacto duplicado...");
         agenda.addPerson("John", "Doe", "111222333", "new.email@example.com", "New Street", 1, 1, "Newtown");
         System.out.println("Número de contactos en la agenda: " + agenda.contactCount());
+        //Añade el primer contacto al primer grupo
+        Group group = agenda.getGroupList().get(0);
+        Contact contact= agenda.getContactList().get(0);
+        agenda.addContact2Group(contact, group);
     }
 }
+
+
